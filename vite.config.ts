@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'url'
 
 export default defineConfig({
+  base: '/storscale-redesign/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
