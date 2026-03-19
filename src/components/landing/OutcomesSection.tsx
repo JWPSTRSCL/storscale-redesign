@@ -44,7 +44,7 @@ const outcomes = [
 
 export function OutcomesSection() {
   return (
-    <section id="outcomes" className="py-24">
+    <section id="outcomes" className="py-32 md:py-40">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -53,19 +53,19 @@ export function OutcomesSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-4">
             OUTCOMES
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9]">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] mb-4">
             Results that speak for themselves
           </h2>
-          <p className="text-[#94A3B8] mt-4 max-w-xl mx-auto">
+          <p className="text-[#94A3B8] max-w-xl mx-auto">
             StorScale delivers measurable outcomes across every metric that matters
             to storage operators.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
           {outcomes.map((item, i) => (
             <motion.div
               key={item.title}
@@ -73,9 +73,11 @@ export function OutcomesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
-              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-8 hover:border-[#F97316]/30 transition-all duration-300"
+              className="bg-[#0D1220]/60 rounded-xl p-8 shadow-lg shadow-black/10 hover:bg-[#141A2E] transition-all duration-300"
             >
-              <item.icon className="w-8 h-8 text-[#F97316]" />
+              <div className="w-12 h-12 rounded-xl bg-[#F97316]/10 flex items-center justify-center">
+                <item.icon className="w-6 h-6 text-[#F97316]" />
+              </div>
               <h3 className="text-lg font-bold text-[#F1F5F9] mt-4">
                 {item.title}
               </h3>

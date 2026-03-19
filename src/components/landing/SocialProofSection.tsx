@@ -35,7 +35,7 @@ const testimonials = [
 
 export function SocialProofSection() {
   return (
-    <section className="relative z-10 py-24 bg-[#070B14]">
+    <section className="relative z-10 py-32 md:py-40 bg-[#070B14]">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -79,7 +79,7 @@ export function SocialProofSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6"
+              className="bg-[#0D1220]/60 shadow-lg shadow-black/10 rounded-xl p-6"
             >
               {/* Stars */}
               <div className="flex gap-0.5">

@@ -31,7 +31,7 @@ const steps = [
 
 export function TimelineSection() {
   return (
-    <section id="timeline" className="relative z-10 py-24 bg-[#070B14]">
+    <section id="timeline" className="relative z-10 py-32 md:py-40 bg-[#070B14]">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -52,7 +52,7 @@ export function TimelineSection() {
         {/* Mobile: stacked with line on the left */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-[#1E2A42]" />
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-[#F97316]/20 via-[#1E2A42] to-[#1E2A42]/20" />
 
           <div className="flex flex-col gap-16">
             {steps.map((step, i) => {
@@ -86,7 +86,7 @@ export function TimelineSection() {
                     <p className="text-2xl font-bold text-[#F97316] mb-2">
                       {step.day}
                     </p>
-                    <div className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6 max-w-sm">
+                    <div className="bg-[#0D1220]/80 shadow-lg shadow-black/20 rounded-xl p-6 max-w-sm">
                       <h3 className="font-bold text-[#F1F5F9] text-lg mb-2">
                         {step.title}
                       </h3>

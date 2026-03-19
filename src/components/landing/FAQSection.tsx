@@ -39,7 +39,7 @@ export function FAQSection() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-24">
+    <section id="faq" className="py-32 md:py-40">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -56,7 +56,7 @@ export function FAQSection() {
           </h2>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto mt-12">
+        <div className="max-w-2xl mx-auto mt-16">
           {faqs.map((faq, i) => (
             <motion.div
               key={faq.q}
@@ -64,7 +64,7 @@ export function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05, ease: EASE }}
-              className="border-b border-[#1E2A42]"
+              className="border-b border-white/[0.06]"
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
@@ -105,7 +105,7 @@ export function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.3, ease: EASE }}
-          className="text-center mt-16"
+          className="text-center mt-20"
         >
           <p className="text-lg font-semibold text-[#F1F5F9] mb-4">
             Still have questions?

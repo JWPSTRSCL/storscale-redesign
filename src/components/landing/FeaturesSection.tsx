@@ -184,7 +184,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-24">
+    <section id="features" className="py-32 md:py-40">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -193,7 +193,7 @@ export function FeaturesSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="mb-20"
         >
-          <p className="section-label mb-3">02 — Features</p>
+          <p className="section-label mb-4">02 — Features</p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] max-w-xl leading-[1.1]">
             Everything you need to dominate your market
           </h2>
@@ -207,9 +207,9 @@ export function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: EASE }}
-              className={`flex flex-col lg:flex-row items-center gap-12 py-16 ${
+              className={`flex flex-col lg:flex-row items-center gap-12 py-20 ${
                 i % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              } ${i < features.length - 1 ? 'border-b border-[#1E2A42]' : ''}`}
+              } ${i < features.length - 1 ? 'border-b border-white/[0.04]' : ''}`}
             >
               {/* Text side */}
               <div className="flex-1">
@@ -226,7 +226,8 @@ export function FeaturesSection() {
 
               {/* Visual side */}
               <div className="flex-1 w-full">
-                <div className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6 w-full max-w-md mx-auto lg:mx-0">
+                <div className="relative bg-[#0D1220]/80 border border-white/[0.06] rounded-xl p-6 w-full max-w-md mx-auto lg:mx-0 shadow-xl shadow-black/30 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/20 to-transparent" />
                   {feature.mockup}
                 </div>
               </div>

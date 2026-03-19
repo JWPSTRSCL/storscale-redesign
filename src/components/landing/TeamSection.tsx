@@ -39,16 +39,16 @@ const cards: ServiceCard[] = [
 
 export function TeamSection() {
   return (
-    <section id="team" className="relative z-10 py-24 bg-[#070B14]">
+    <section id="team" className="relative z-10 py-32 md:py-40 bg-[#070B14]">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-4">
             04 — YOUR TEAM
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] mb-4 leading-[1.1]">
@@ -68,9 +68,11 @@ export function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-8 hover:border-[#F97316]/30 transition-colors"
+              className="bg-[#0D1220] border border-white/[0.06] rounded-xl p-8 shadow-lg shadow-black/20 hover:bg-[#141A2E] transition-all duration-300"
             >
-              <card.icon className="w-6 h-6 text-[#F97316]" />
+              <div className="w-12 h-12 rounded-xl bg-[#F97316]/10 flex items-center justify-center">
+                <card.icon className="w-6 h-6 text-[#F97316]" />
+              </div>
               <h3 className="text-xl font-bold text-[#F1F5F9] mt-4">
                 {card.title}
               </h3>

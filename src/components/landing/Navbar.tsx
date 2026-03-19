@@ -22,7 +22,7 @@ export function Navbar() {
     <header
       className={`fixed top-4 left-4 right-4 z-50 mx-auto max-w-[1200px] rounded-xl transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0D1220]/90 backdrop-blur-lg border border-[#1E2A42]'
+          ? 'bg-[#0D1220]/90 backdrop-blur-lg border border-white/[0.06]'
           : 'bg-transparent border border-transparent'
       }`}
     >

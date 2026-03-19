@@ -72,7 +72,7 @@ export function PricingSection() {
   const [annual, setAnnual] = useState(false)
 
   return (
-    <section id="pricing" className="py-24">
+    <section id="pricing" className="py-32 md:py-40">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -90,7 +90,7 @@ export function PricingSection() {
 
           {/* Billing toggle */}
           <div className="mt-8 flex justify-center">
-            <div className="inline-flex items-center bg-[#0D1220] border border-[#1E2A42] rounded-full p-1">
+            <div className="inline-flex items-center bg-[#0D1220]/60 border border-white/[0.06] rounded-full p-1">
               <button
                 onClick={() => setAnnual(false)}
                 className={`relative px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors duration-200 ${
@@ -130,7 +130,7 @@ export function PricingSection() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
@@ -138,10 +138,10 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
-              className={`relative bg-[#0D1220] rounded-xl p-8 flex flex-col ${
+              className={`relative rounded-xl p-8 flex flex-col ${
                 tier.popular
-                  ? 'border-2 border-[#F97316]'
-                  : 'border border-[#1E2A42]'
+                  ? 'bg-[#0D1220] border-2 border-[#F97316]'
+                  : 'bg-[#0D1220]/80 shadow-lg shadow-black/20'
               }`}
               style={
                 tier.popular
@@ -190,7 +190,7 @@ export function PricingSection() {
                 className={`flex items-center justify-center w-full rounded-lg py-3 text-sm font-semibold cursor-pointer transition-colors duration-200 mb-8 ${
                   tier.popular
                     ? 'bg-[#F97316] text-white hover:bg-[#EA6C0E]'
-                    : 'border border-[#1E2A42] text-[#F1F5F9] hover:bg-[#141A2E]'
+                    : 'bg-white/[0.06] text-[#F1F5F9] hover:bg-white/[0.1]'
                 }`}
               >
                 {tier.cta}

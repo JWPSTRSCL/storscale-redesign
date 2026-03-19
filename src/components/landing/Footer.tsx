@@ -16,8 +16,8 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#1E2A42]">
-      <div className="container-max py-16">
+    <footer className="border-t border-white/[0.06]">
+      <div className="container-max py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Col 1: Logo + tagline */}
           <div>
@@ -89,7 +89,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#1E2A42] mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/[0.06] mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-[#475569]">
             &copy; 2025 StorScale. All rights reserved.
           </p>

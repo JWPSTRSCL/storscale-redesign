@@ -50,7 +50,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
-              <span className="inline-flex items-center border border-[#1E2A42] bg-[#0D1220] rounded-full px-4 py-1.5 text-xs text-[#94A3B8] font-medium mb-6">
+              <span className="inline-flex items-center border border-white/[0.08] bg-[#0D1220] rounded-full px-4 py-1.5 text-xs text-[#94A3B8] font-medium mb-6">
                 AI-Powered Self-Storage Marketing
               </span>
             </motion.div>
@@ -106,7 +106,7 @@ export function Hero() {
               </a>
               <a
                 href="#pricing"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold border border-[#1E2A42] text-[#F1F5F9] hover:bg-[#0D1220] transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-white/[0.06] border-0 text-[#F1F5F9] hover:bg-white/[0.1] transition-colors cursor-pointer"
               >
                 View Plans
               </a>
@@ -121,7 +121,7 @@ export function Hero() {
             className="relative"
           >
             {/* Dashboard card */}
-            <div className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6">
+            <div className="bg-[#0D1220] border border-white/[0.06] rounded-xl p-6 shadow-2xl shadow-black/40">
               <p className="text-sm font-semibold text-[#F1F5F9] mb-4">Revenue Overview</p>
 
               {/* Bar chart */}
@@ -163,7 +163,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: card.delay, ease: EASE }}
-                className={`absolute ${card.position} bg-[#0D1220]/80 backdrop-blur border border-[#1E2A42] rounded-lg p-3 flex items-center gap-2.5 animate-float`}
+                className={`absolute ${card.position} bg-[#0D1220]/80 backdrop-blur border border-white/[0.06] rounded-lg p-3 flex items-center gap-2.5 animate-float`}
                 style={{
                   animationDelay: `${card.delay}s`,
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)',

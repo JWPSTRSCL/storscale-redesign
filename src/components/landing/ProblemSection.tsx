@@ -28,7 +28,7 @@ const cardVariants = {
 
 export function ProblemSection() {
   return (
-    <section id="problem" className="py-24">
+    <section id="problem" className="py-32 md:py-40">
       <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -37,17 +37,17 @@ export function ProblemSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="mb-14"
         >
-          <p className="section-label mb-3">01 — The Problem</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] max-w-2xl leading-[1.1]">
+          <p className="section-label mb-4">01 — The Problem</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] max-w-2xl leading-[1.1] mb-4">
             Self-storage marketing is broken
           </h2>
-          <p className="text-[#94A3B8] mt-4 max-w-xl">
+          <p className="text-[#94A3B8] max-w-xl">
             Operators are overspending on generic agencies, underperforming campaigns, and tools that weren't built for storage.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -57,7 +57,7 @@ export function ProblemSection() {
             <motion.div
               key={stat.value}
               variants={cardVariants}
-              className="bg-[#0D1220] border border-[#1E2A42] border-l-4 border-l-[#F97316] rounded-xl p-8"
+              className="bg-gradient-to-r from-[#0D1220] to-[#0D1220]/60 border-l-4 border-l-[#F97316] rounded-xl p-8 shadow-lg shadow-black/20"
             >
               <p className="text-5xl font-bold text-[#F1F5F9] mb-3 leading-none">
                 {stat.value}
