@@ -1,103 +1,100 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Lightbulb } from 'lucide-react'
+
+const EASE = [0.16, 1, 0.3, 1] as const
 
 const steps = [
   {
-    day: 'Day 1-7',
-    num: '1',
-    title: 'Discovery & Setup',
-    description: 'Strategy call, account access, and initial audit',
+    day: 'Day 1',
+    title: 'Onboarding & Audit',
+    description: 'We connect your accounts, audit your current marketing, and build your customized strategy. You approve the plan.',
+    side: 'right' as const,
   },
   {
-    day: 'Day 8-30',
-    num: '2',
-    title: 'Build & Configure',
-    description: 'Dashboard setup, tracking implementation, baseline metrics',
+    day: 'Day 7',
+    title: 'Campaigns Go Live',
+    description: 'Your Google Ads, local SEO updates, and GMB optimizations are active. Our AI begins tracking performance.',
+    side: 'left' as const,
   },
   {
-    day: 'Day 31-60',
-    num: '3',
-    title: 'Optimize & Learn',
-    description: 'Data-driven adjustments, A/B testing, performance tuning',
+    day: 'Day 30',
+    title: 'First Results Review',
+    description: "Monthly clarity call with your specialist. Review wins, discuss insights, and approve next month's recommendations.",
+    side: 'right' as const,
   },
   {
-    day: 'Day 61-100',
-    num: '4',
-    title: 'Scale & Succeed',
-    description: 'Full visibility, clear ROI, confident growth decisions',
+    day: 'Day 100',
+    title: 'Revenue Compounding',
+    description: 'With three months of data, our AI predictions sharpen. Most facilities see 25\u201340% revenue growth by this milestone.',
+    side: 'left' as const,
   },
 ]
 
 export function TimelineSection() {
   return (
-    <section id="timeline" className="py-24 px-4 bg-[#F8FAFC]">
+    <section id="timeline" className="relative z-10 py-24 px-4 bg-[#070B14] border-t border-[#1E2A42]">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          transition={{ duration: 0.5, ease: EASE }}
+          className="text-center mb-20"
         >
-          <span className="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#FDBA74] text-xs font-semibold text-[#EA580C] uppercase tracking-wide mb-4">
-            How we deliver results in 100 days
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mb-4">
-            Live in 24 hours — Positive ROI in less than 100 days
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">How It Works</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+            From onboarding to results in 100 days
           </h2>
-          <p className="text-slate-500 text-lg">
-            No software to install. Just action from the second you sign up.
-          </p>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative"
-            >
-              {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[calc(50%+28px)] right-[-28px] h-0.5 bg-[#E2E8F0] z-0" />
-              )}
-              <div className="bg-white rounded-xl p-6 border border-[#E2E8F0] text-center relative z-10 hover:shadow-md transition-shadow duration-200">
-                <div className="w-12 h-12 bg-[#F97316] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold shadow-md shadow-orange-100">
-                  {step.num}
-                </div>
-                <p className="text-xs font-semibold text-[#F97316] mb-2 uppercase tracking-wide">{step.day}</p>
-                <h3 className="font-semibold text-[#0F172A] mb-2">{step.title}</h3>
-                <p className="text-sm text-slate-500">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <div className="relative max-w-3xl mx-auto">
+          {/* Vertical line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#1E2A42] -translate-x-1/2" />
 
-        {/* Callout + CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-white border border-[#E2E8F0] rounded-xl px-8 py-6"
-        >
-          <div className="flex items-center gap-3">
-            <Lightbulb className="w-5 h-5 text-[#F97316] shrink-0" />
-            <p className="text-sm font-medium text-[#0F172A]">
-              Most clients see measurable clarity by Day 30
-            </p>
+          <div className="flex flex-col gap-12">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.day}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
+                className="relative grid grid-cols-2 gap-8 items-center"
+              >
+                {/* Node */}
+                <div
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[#F97316] z-10"
+                  style={{ boxShadow: '0 0 0 6px rgba(249,115,22,0.15)' }}
+                />
+
+                {step.side === 'right' ? (
+                  <>
+                    <div className="text-right pr-8">
+                      <p className="text-5xl font-bold text-[#1E2A42] leading-none">{step.day}</p>
+                    </div>
+                    <div className="pl-8">
+                      <div className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-5">
+                        <h3 className="font-bold text-[#F1F5F9] mb-2">{step.title}</h3>
+                        <p className="text-sm text-[#94A3B8] leading-relaxed">{step.description}</p>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="pr-8">
+                      <div className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-5">
+                        <h3 className="font-bold text-[#F1F5F9] mb-2">{step.title}</h3>
+                        <p className="text-sm text-[#94A3B8] leading-relaxed">{step.description}</p>
+                      </div>
+                    </div>
+                    <div className="pl-8">
+                      <p className="text-5xl font-bold text-[#1E2A42] leading-none">{step.day}</p>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            ))}
           </div>
-          <a
-            href="#pricing"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#F97316] hover:bg-[#EA580C] text-white font-semibold rounded-xl transition-colors duration-200 cursor-pointer text-sm shrink-0"
-          >
-            Get Your Free Revenue Audit
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

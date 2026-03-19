@@ -1,54 +1,47 @@
 import { motion } from 'framer-motion'
 
+const EASE = [0.16, 1, 0.3, 1] as const
+
 const integrations = [
-  'Google Ads',
-  'Google My Business',
-  'Tenant Inc',
-  'Storable',
-  'SiteLink',
-  'Semrush',
-  'Ahrefs',
-  'Google Analytics',
+  'Google Ads', 'Meta Ads', 'StorTrack', 'Yardi', 'SiteLink', 'DaVinci',
+  'Google Business', 'CallRail', 'Mailchimp', 'Zapier', 'SpareFoot', 'Storage.com',
 ]
 
 export function IntegrationsSection() {
+  const doubled = [...integrations, ...integrations]
+
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="relative z-10 py-24 px-4 bg-[#070B14] border-t border-[#1E2A42]">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mb-4">
-            Works with what you <span className="text-[#F97316]">already use</span>
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">Integrations</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+            Connects with your existing tools
           </h2>
-          <p className="text-slate-500 text-lg">
-            We connect to your existing tools. No migration, no disruption.
+          <p className="text-[#94A3B8] mt-4 max-w-md mx-auto text-sm">
+            StorScale plugs into the platforms you already use — no migration required.
           </p>
         </motion.div>
 
-        {/* Marquee */}
-        <div className="relative overflow-hidden py-6">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...integrations, ...integrations].map((name, i) => (
+        <div
+          className="overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+          }}
+        >
+          <div className="flex animate-marquee w-max gap-3">
+            {doubled.map((name, i) => (
               <div
-                key={`${name}-${i}`}
-                className="inline-flex items-center gap-3 mx-4 px-5 py-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl"
+                key={i}
+                className="px-5 py-2.5 rounded-lg bg-[#0D1220] border border-[#1E2A42] text-[#94A3B8] text-sm font-medium whitespace-nowrap flex-shrink-0"
               >
-                <div className="w-7 h-7 bg-[#0F172A]/5 rounded-lg flex items-center justify-center">
-                  <span className="text-xs font-bold text-[#0F172A]">
-                    {name.charAt(0)}
-                  </span>
-                </div>
-                <span className="text-sm font-medium text-[#0F172A] whitespace-nowrap">
-                  {name}
-                </span>
+                {name}
               </div>
             ))}
           </div>

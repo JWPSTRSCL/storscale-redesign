@@ -2,134 +2,88 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 
+const EASE = [0.16, 1, 0.3, 1] as const
+
 const faqs = [
-  {
-    question: 'How quickly will I see results?',
-    answer: 'Most facilities see measurable improvements within 30 days — higher Google rankings, more leads, and increased call volume. Full occupancy impact typically takes 60–90 days as SEO compounds and your ad campaigns optimize.',
-  },
-  {
-    question: 'Do I need to sign a long-term contract?',
-    answer: 'No contracts required. All plans are month-to-month and you can cancel anytime. We earn your business by delivering results, not by locking you in.',
-  },
-  {
-    question: "What makes StorScale different from other marketing agencies?",
-    answer: "We specialize exclusively in self-storage — no generalist agencies trying to figure out your industry. Our team has managed $2M+ in storage ad spend and our AI tools are built specifically for the self-storage market.",
-  },
-  {
-    question: 'What integrations do you support?',
-    answer: 'We integrate with all major property management systems including SiteLink, Storable, Tenant Inc., and others. We also connect with Google Ads, Google My Business, SEMrush, and your existing CRM.',
-  },
-  {
-    question: 'How does the AI-powered pricing work?',
-    answer: 'Our AI monitors competitor pricing, local demand signals, and your occupancy rate in real-time, then recommends optimal unit prices. Available on Scale and Master plans.',
-  },
-  {
-    question: 'What if I have multiple locations?',
-    answer: 'The Scale and Master plans are built for multi-location operators. We manage each location individually while giving you a unified dashboard view across your entire portfolio.',
-  },
-  {
-    question: "Is there a setup fee?",
-    answer: 'No setup fees. We get started immediately after onboarding, which typically takes less than a week. You only pay the monthly plan rate.',
-  },
+  { q: 'How quickly will I see results?', a: 'Most facilities see measurable improvement in occupancy and revenue within the first 30\u201360 days. Full results typically compound over the first 100 days as our AI gathers more data.' },
+  { q: 'Do I need to do anything after signing up?', a: "Very little. You'll approve recommendations and join monthly clarity calls. We handle everything else \u2014 campaign setup, ad management, GMB updates, and more." },
+  { q: 'What if I already have a marketing agency?', a: 'StorScale can replace or complement existing marketing. Many clients switch because they want execution included, not just strategy and reports.' },
+  { q: 'Do you manage Google Ads directly?', a: 'Yes. We set up, manage, and optimize your Google Ads campaigns. You maintain ownership of your account \u2014 we just run it for you.' },
+  { q: 'Is there a contract or lock-in period?', a: 'No long-term contracts. All plans are month-to-month with the option to cancel anytime. Annual plans are discounted but not required.' },
+  { q: 'What makes StorScale different from other marketing tools?', a: 'We execute, not just advise. Most tools give you a dashboard. StorScale gives you a team that implements the recommendations for you.' },
+  { q: 'Can I start on the free Passive plan?', a: "Yes. The Passive plan is completely free and gives you full access to AI-generated insights and recommendations. Upgrade when you're ready for execution." },
 ]
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        {/* Header */}
+    <section id="faq" className="relative z-10 py-24 px-4 bg-[#070B14] border-t border-[#1E2A42]">
+      <div className="max-w-3xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="text-center mb-14"
         >
-          <span className="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#FDBA74] text-xs font-semibold text-[#EA580C] uppercase tracking-wide mb-4">
-            FAQ
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mb-4">
-            Frequently asked questions
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">FAQ</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+            Questions & answers
           </h2>
-          <p className="text-slate-500">
-            Everything you need to know before getting started.
-          </p>
         </motion.div>
 
-        {/* Accordion */}
-        <div className="space-y-3">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className={[
-                  'rounded-xl border transition-colors duration-200',
-                  isOpen ? 'border-[#F97316]/40 bg-[#FFF7ED]/30' : 'border-[#E2E8F0] bg-white hover:border-[#CBD5E1]',
-                ].join(' ')}
+        <div>
+          {faqs.map((faq, i) => (
+            <motion.div
+              key={faq.q}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.05, ease: EASE }}
+              className="border-b border-[#1E2A42]"
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-center justify-between py-5 text-left cursor-pointer group"
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex items-center justify-between w-full px-5 py-4 text-left cursor-pointer"
-                  aria-expanded={isOpen}
-                >
-                  <span className={['text-sm font-semibold', isOpen ? 'text-[#0F172A]' : 'text-[#0F172A]'].join(' ')}>
-                    {faq.question}
-                  </span>
-                  <div className={[
-                    'flex items-center justify-center w-6 h-6 rounded-full flex-shrink-0 ml-4 transition-colors',
-                    isOpen ? 'bg-[#F97316]' : 'bg-[#F1F5F9]',
-                  ].join(' ')}>
-                    {isOpen
-                      ? <Minus className="size-3 text-white" />
-                      : <Plus className="size-3 text-slate-500" />
-                    }
-                  </div>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      style={{ overflow: 'hidden' }}
-                    >
-                      <p className="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            )
-          })}
+                <span className="text-sm font-medium text-[#F1F5F9] group-hover:text-white transition-colors pr-4">
+                  {faq.q}
+                </span>
+                <span className="shrink-0 text-[#F97316]">
+                  {open === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                </span>
+              </button>
+              <AnimatePresence>
+                {open === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: EASE }}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <p className="text-sm text-[#94A3B8] leading-relaxed pb-5">{faq.a}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
 
-        {/* CTA below FAQ */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12 p-8 rounded-2xl bg-[#0F172A]"
+          transition={{ duration: 0.4, delay: 0.3, ease: EASE }}
+          className="text-center mt-14"
         >
-          <p className="text-white font-semibold mb-1">Still have questions?</p>
-          <p className="text-white/60 text-sm mb-5">
-            Book a free 30-minute strategy call and we'll answer everything.
-          </p>
+          <h3 className="text-2xl font-bold text-[#F1F5F9] mb-4">Still have questions?</h3>
           <a
             href="#demo"
-            className="inline-flex items-center px-6 py-3 rounded-xl text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA580C] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA580C] transition-colors duration-200"
           >
-            Book a Free Call
+            Talk to our team
           </a>
         </motion.div>
       </div>

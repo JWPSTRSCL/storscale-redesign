@@ -1,121 +1,92 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
-const stats = [
-  { value: '32%', label: 'Average occupancy increase in 90 days' },
-  { value: '18%', label: 'Reduction in cost per lead' },
-  { value: '3x', label: 'Average lead volume growth' },
+const EASE = [0.16, 1, 0.3, 1] as const
+
+const bigStats = [
+  { value: '+32%', label: 'Average revenue increase' },
+  { value: '18%', label: 'Avg occupancy improvement' },
+  { value: '3\u00d7', label: 'Return on marketing spend' },
 ]
 
 const testimonials = [
   {
-    name: 'Michael Torres',
-    role: 'Owner, Sunbelt Storage',
-    location: 'Phoenix, AZ',
-    rating: 5,
-    quote: "We went from 74% to 97% occupancy in under 60 days. The Google ranking improvements alone paid for the service ten times over. StorScale is the real deal.",
-    initials: 'MT',
-    color: '#6366F1',
+    quote: "StorScale transformed our marketing. We went from 71% to 94% occupancy in 90 days. The team handles everything.",
+    name: 'Mike D.',
+    role: 'Owner, Ridgeline Storage \u2014 Phoenix, AZ',
+    initials: 'MD',
   },
   {
-    name: 'Lisa Hammond',
-    role: 'Operations Director, SafeKeep Storage',
-    location: 'Austin, TX',
-    rating: 5,
-    quote: "I've worked with three marketing agencies over the years. StorScale is the first that actually understands the self-storage business. Our phone rings every day now.",
-    initials: 'LH',
-    color: '#10B981',
+    quote: "I was skeptical at first but the results speak for themselves. $22k more per month with zero additional effort on my end.",
+    name: 'Sarah K.',
+    role: 'Operator, Coast Clear Storage \u2014 Tampa, FL',
+    initials: 'SK',
   },
   {
-    name: 'David Park',
-    role: 'Portfolio Manager, Park Storage Group',
-    location: 'Denver, CO',
-    rating: 5,
-    quote: "Managing 6 locations used to be a nightmare from a marketing perspective. StorScale's unified dashboard and AI pricing changed everything — revenue is up 22% this quarter.",
-    initials: 'DP',
-    color: '#F97316',
+    quote: "The AI recommendations are incredibly accurate. Our Google rankings went from page 3 to #1 within six weeks.",
+    name: 'James T.',
+    role: 'Owner, Blue Ridge Self Storage \u2014 Denver, CO',
+    initials: 'JT',
   },
 ]
 
 export function SocialProofSection() {
   return (
-    <section className="py-24 bg-[#F8FAFC]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header */}
+    <section className="relative z-10 py-24 px-4 bg-[#070B14] border-t border-[#1E2A42]">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          transition={{ duration: 0.5, ease: EASE }}
+          className="text-center mb-16"
         >
-          <span className="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#FDBA74] text-xs font-semibold text-[#EA580C] uppercase tracking-wide mb-4">
-            Results
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mb-4">
-            Real results from real operators
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">Results</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+            Proven results across 180+ facilities
           </h2>
-          <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            Facilities across the country trust StorScale to grow their business.
-          </p>
         </motion.div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
-          {stats.map((s, i) => (
+        <div className="grid sm:grid-cols-3 gap-8 mb-16 text-center">
+          {bigStats.map((stat, i) => (
             <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
+              key={stat.value}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="text-center p-8 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm"
+              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
             >
-              <div className="text-5xl font-extrabold text-[#0F172A] mb-2">{s.value}</div>
-              <div className="text-sm text-slate-500">{s.label}</div>
+              <p className="text-7xl lg:text-8xl font-bold text-[#F1F5F9] leading-none">{stat.value}</p>
+              <p className="text-sm text-[#94A3B8] mt-3">{stat.label}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Testimonial cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6"
             >
-              <Card className="h-full flex flex-col hover:shadow-md transition-shadow duration-200">
-                <CardHeader className="pb-3">
-                  <div className="flex gap-0.5 mb-1">
-                    {Array.from({ length: t.rating }).map((_, idx) => (
-                      <Star key={idx} className="size-4 fill-[#F97316] text-[#F97316]" />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1">
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    "{t.quote}"
-                  </p>
-                </CardContent>
-                <CardFooter className="border-t border-[#F1F5F9] pt-4">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="flex items-center justify-center w-10 h-10 rounded-full text-white text-sm font-bold flex-shrink-0"
-                      style={{ background: t.color }}
-                    >
-                      {t.initials}
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[#0F172A]">{t.name}</p>
-                      <p className="text-xs text-slate-500">{t.role} · {t.location}</p>
-                    </div>
-                  </div>
-                </CardFooter>
-              </Card>
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} className="w-3.5 h-3.5 fill-[#F97316] text-[#F97316]" />
+                ))}
+              </div>
+              <p className="text-[#94A3B8] text-sm leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#1E2A42] flex items-center justify-center shrink-0">
+                  <span className="text-xs font-bold text-[#94A3B8]">{t.initials}</span>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#F1F5F9]">{t.name}</p>
+                  <p className="text-xs text-[#475569]">{t.role}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

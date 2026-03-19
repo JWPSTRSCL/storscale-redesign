@@ -13,7 +13,7 @@ import { Footer } from '@/components/landing/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#070B14]">
       <Navbar />
       <Hero />
       <ProblemSection />

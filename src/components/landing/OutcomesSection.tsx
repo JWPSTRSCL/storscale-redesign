@@ -1,94 +1,62 @@
 import { motion } from 'framer-motion'
-import { Eye, Search, Shield, TrendingUp } from 'lucide-react'
+import { TrendingUp, DollarSign, Users, Star } from 'lucide-react'
+
+const EASE = [0.16, 1, 0.3, 1] as const
 
 const outcomes = [
-  {
-    icon: Eye,
-    title: 'Customer Visibility',
-    subtitle: 'See everything in one place',
-    description:
-      'Know exactly where your leads come from, what\'s converting, and where your budget is going without logging into five different platforms.',
-    stat: '100%',
-    statLabel: 'Lead source visibility',
-  },
-  {
-    icon: Search,
-    title: 'Capturing Interest',
-    subtitle: 'Show up when renters are searching',
-    description:
-      'Dominate local search results and paid channels so customers find you first, before they see the national chain down the street.',
-    stat: 'Top 3',
-    statLabel: 'Local search ranking',
-  },
-  {
-    icon: Shield,
-    title: 'Protect Occupancy',
-    subtitle: 'Respond before vacancies become a problem',
-    description:
-      'Get early warnings when lead flow drops so you can act quickly instead of reacting too late. Maintain healthy occupancy rates with proactive insights.',
-    stat: '98%',
-    statLabel: 'Occupancy protected',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Price to Compete',
-    subtitle: 'Understand which channels deliver the best ROI',
-    description:
-      'Invest strategically in the marketing channels that actually drive move-ins. Stop wasting budget on clicks that don\'t convert into paying customers.',
-    stat: '20%+',
-    statLabel: 'ROI improvement',
-  },
+  { icon: TrendingUp, stat: '+32%', label: 'Average revenue increase in first 90 days' },
+  { icon: DollarSign, stat: '$14k', label: 'Average additional monthly revenue per facility' },
+  { icon: Users, stat: '180+', label: 'Active storage facilities trust StorScale' },
+  { icon: Star, stat: '4.9\u2605', label: 'Average customer satisfaction rating' },
 ]
 
 export function OutcomesSection() {
   return (
-    <section className="py-24 px-4 bg-white">
+    <section className="relative z-10 py-24 px-4 bg-[#070B14] border-t border-[#1E2A42]">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          transition={{ duration: 0.5, ease: EASE }}
+          className="text-center mb-14"
         >
-          <span className="inline-block px-3 py-1 rounded-full bg-[#FFF7ED] border border-[#FDBA74] text-xs font-semibold text-[#EA580C] uppercase tracking-wide mb-4">
-            Outcomes
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mb-4">
-            The outcomes that <span className="text-[#F97316]">actually matter</span>
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">Outcomes</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+            Real results for real operators
           </h2>
-          <p className="text-slate-500 text-lg">
-            Here's what StorScale actually delivers for your business.
-          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {outcomes.map((item, i) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={item.stat}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-[#F8FAFC] rounded-xl p-6 border border-[#E2E8F0] hover:shadow-md transition-shadow duration-200"
+              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="font-semibold text-[#0F172A] text-lg">{item.title}</h3>
-                  <p className="text-sm text-slate-500">{item.subtitle}</p>
-                </div>
-                <div className="w-10 h-10 bg-[#FFF7ED] rounded-lg flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-[#F97316]" />
-                </div>
+              <div className="w-10 h-10 bg-[#F97316]/10 rounded-lg flex items-center justify-center mb-4">
+                <item.icon className="w-5 h-5 text-[#F97316]" />
               </div>
-              <p className="text-sm text-slate-500 leading-relaxed mb-6">{item.description}</p>
-              <div className="flex items-center gap-3 pt-4 border-t border-[#E2E8F0]">
-                <span className="text-2xl font-bold text-[#0F172A]">{item.stat}</span>
-                <span className="text-sm text-slate-500">{item.statLabel}</span>
-              </div>
+              <p className="text-4xl font-bold text-[#F1F5F9] mb-2 leading-none">{item.stat}</p>
+              <p className="text-sm text-[#94A3B8] leading-relaxed">{item.label}</p>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
+          className="text-center mt-10"
+        >
+          <a href="#timeline" className="text-sm font-semibold text-[#F97316] hover:text-[#EA580C] transition-colors">
+            See how we achieve this →
+          </a>
+        </motion.div>
       </div>
     </section>
   )

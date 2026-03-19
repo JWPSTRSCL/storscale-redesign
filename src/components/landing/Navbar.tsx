@@ -25,46 +25,30 @@ export function Navbar() {
       className={cn(
         'fixed top-4 left-0 right-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl rounded-xl transition-all duration-300',
         scrolled
-          ? 'bg-[#0F172A]/95 supports-[backdrop-filter]:bg-[#0F172A]/80 backdrop-blur-lg border border-white/10 shadow-lg'
-          : 'bg-white/90 supports-[backdrop-filter]:bg-white/70 backdrop-blur-md border border-[#E2E8F0] shadow-sm',
+          ? 'bg-[#0D1220]/90 backdrop-blur-xl border border-[#1E2A42]'
+          : 'bg-transparent border border-[#1E2A42]/50',
       )}
     >
       <nav className="flex items-center justify-between px-4 py-3">
-        {/* Logo */}
         <a href="/" className="flex items-center gap-2 cursor-pointer select-none">
-          <div className={cn(
-            'flex items-center justify-center w-8 h-8 rounded-lg',
-            scrolled ? 'bg-[#F97316]' : 'bg-[#0F172A]',
-          )}>
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#F97316]">
             <WarehouseIcon className="size-4 text-white" />
           </div>
-          <span className={cn(
-            'text-lg font-bold tracking-tight',
-            scrolled ? 'text-white' : 'text-[#0F172A]',
-          )}>
-            StorScale
-          </span>
+          <span className="text-lg font-bold text-[#F1F5F9]">StorScale</span>
         </a>
 
-        {/* Desktop nav links */}
         <div className="hidden items-center gap-1 lg:flex">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={cn(
-                'px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150',
-                scrolled
-                  ? 'text-white/80 hover:text-white hover:bg-white/10'
-                  : 'text-slate-600 hover:text-[#0F172A] hover:bg-slate-50',
-              )}
+              className="px-4 py-2 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42]/50 transition-colors duration-150"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        {/* CTA + mobile menu */}
         <div className="flex items-center gap-2">
           <a
             href="#demo"
@@ -76,26 +60,23 @@ export function Navbar() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
-                className={cn(
-                  'lg:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors cursor-pointer',
-                  scrolled ? 'text-white hover:bg-white/10' : 'text-[#0F172A] hover:bg-slate-100',
-                )}
+                className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors cursor-pointer text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42]/50"
                 aria-label="Open menu"
               >
                 <MenuIcon className="size-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" showClose={false}>
-              <div className="flex items-center justify-between p-4 border-b border-[#E2E8F0]">
+            <SheetContent side="left" showClose={false} className="bg-[#0D1220] border-r border-[#1E2A42]">
+              <div className="flex items-center justify-between p-4 border-b border-[#1E2A42]">
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#0F172A]">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#F97316]">
                     <WarehouseIcon className="size-4 text-white" />
                   </div>
-                  <span className="text-lg font-bold text-[#0F172A]">StorScale</span>
+                  <span className="text-lg font-bold text-[#F1F5F9]">StorScale</span>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-[#1E2A42] transition-colors cursor-pointer text-[#94A3B8]"
                 >
                   <XIcon className="size-4" />
                 </button>
@@ -106,7 +87,7 @@ export function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:text-[#0F172A] hover:bg-slate-50 transition-colors"
+                    className="px-4 py-3 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42] transition-colors"
                   >
                     {link.label}
                   </a>
