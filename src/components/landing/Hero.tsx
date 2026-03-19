@@ -33,7 +33,7 @@ export function Hero() {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={stagger(0)}>
               <span className="inline-flex items-center gap-2.5 bg-[#F97316]/[0.08] text-[#F97316] rounded-full px-4 py-2 text-[0.8125rem] font-medium tracking-wide">
                 <Logo size={18} />
-                AI-Powered Self-Storage Marketing
+                Revenue Intelligence for Self-Storage
               </span>
             </motion.div>
 
@@ -44,11 +44,7 @@ export function Hero() {
               transition={stagger(1)}
               className="mt-8 text-[clamp(2.75rem,5.5vw,5rem)] font-extrabold text-white leading-[1.06] tracking-[-0.03em]"
             >
-              Self-storage marketing
-              <br />
-              built to scale
-              <br />
-              your{' '}
+              Self-storage{' '}
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#F97316]">revenue</span>
                 <motion.span
@@ -58,6 +54,8 @@ export function Hero() {
                   className="absolute -bottom-0.5 left-0 right-0 h-[3px] bg-[#F97316]/40 rounded-full origin-left"
                 />
               </span>
+              <br />
+              built on intelligence
             </motion.h1>
 
             {/* Subtitle */}
@@ -67,8 +65,8 @@ export function Hero() {
               transition={stagger(2)}
               className="mt-7 text-lg text-[#94A3B8] leading-relaxed max-w-md"
             >
-              AI agents that manage your Google Ads, SEO, and operations
-              — so you can focus on growing your portfolio.
+              Precision marketing, dynamic pricing, and competitive intelligence
+              — the data-driven engine behind the fastest-growing storage portfolios.
             </motion.p>
 
             {/* CTAs */}
@@ -114,7 +112,7 @@ export function Hero() {
                 ))}
               </div>
               <p className="text-sm text-[#475569]">
-                <span className="text-[#94A3B8] font-medium">180+ facilities</span> already scaling
+                <span className="text-[#94A3B8] font-medium">Trusted by 180+ facilities</span>
               </p>
             </motion.div>
           </div>
@@ -300,7 +298,7 @@ export function Hero() {
       >
         <div className="container-max">
           <p className="text-[0.6875rem] text-[#475569] uppercase tracking-[0.2em] font-medium text-center mb-6">
-            Integrates with your stack
+            Connected to your operations
           </p>
           <div className="flex items-center justify-center gap-10 sm:gap-14">
             {['Google Ads', 'Meta', 'Yelp', 'StorTrack', 'Airtable'].map((name) => (

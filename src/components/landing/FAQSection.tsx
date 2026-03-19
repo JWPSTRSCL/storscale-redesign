@@ -7,19 +7,19 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const faqs = [
   {
     q: 'How quickly will I see results?',
-    a: 'Most facilities see measurable improvements within the first 30 days. Our AI begins optimizing your campaigns immediately, and results compound over the first 90 days as the system gathers more performance data.',
+    a: 'Most facilities see measurable improvements within 30 days. Our intelligence engine needs 7-14 days of market data to calibrate, then optimization begins immediately. Significant revenue impact typically compounds by day 90.',
   },
   {
     q: 'Do I need to do anything after signing up?',
-    a: "Very little. After a 30-minute onboarding call, our team handles everything \u2014 campaign setup, ad management, GMB updates, and ongoing optimization. You just approve recommendations and join your scheduled calls.",
+    a: "Very little. After a 30-minute onboarding call, our team handles everything \u2014 campaign setup, listing optimization, competitive monitoring. You review recommendations and approve strategy, we execute.",
   },
   {
     q: 'What if I already have a marketing agency?',
-    a: 'StorScale can work alongside your existing agency or replace them entirely. Many operators switch because they want execution included, not just strategy decks and monthly reports.',
+    a: 'StorScale complements existing agencies by adding the intelligence layer most agencies lack \u2014 real-time competitive data, dynamic pricing insights, and continuous performance optimization.',
   },
   {
     q: 'Do you manage Google Ads directly?',
-    a: 'Yes. Our AI agents have direct access to your Google Ads account and manage campaigns in real-time. You maintain full ownership of your account \u2014 we just run it better.',
+    a: 'Yes. Our specialists manage your Google Ads with full transparency. Every bid, keyword, and budget decision is backed by market-specific data and competitive intelligence.',
   },
   {
     q: 'Is there a contract or lock-in period?',
@@ -27,11 +27,11 @@ const faqs = [
   },
   {
     q: 'What makes StorScale different from other marketing tools?',
-    a: "We're purpose-built for self-storage. Unlike generic marketing platforms, every algorithm, benchmark, and strategy is tuned specifically for the storage industry. Plus, we execute \u2014 not just advise.",
+    a: "We're purpose-built for self-storage revenue optimization. Unlike generic marketing tools, StorScale combines competitive rate intelligence, dynamic pricing, listing optimization, and precision marketing into one integrated platform \u2014 built by people who understand storage economics.",
   },
   {
     q: 'Can I start on the free Passive plan?',
-    a: 'Absolutely. The Passive plan gives you access to our AI recommendations dashboard, weekly performance reports, and market trend analysis \u2014 completely free. Upgrade whenever you want execution.',
+    a: 'Absolutely. The Passive plan gives you access to our revenue intelligence dashboard and competitive monitoring \u2014 so you can see the opportunity before committing to optimization.',
   },
 ]
 

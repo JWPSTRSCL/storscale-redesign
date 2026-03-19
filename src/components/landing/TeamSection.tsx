@@ -15,25 +15,25 @@ const cards: ServiceCard[] = [
     icon: Target,
     title: 'Paid Ads Specialist',
     description:
-      'AI-managed Google Ads campaigns with continuous bid optimization and keyword discovery.',
+      'Data-driven campaign management with continuous bid optimization, keyword refinement, and market-specific targeting.',
   },
   {
     icon: Search,
     title: 'SEO Strategist',
     description:
-      'Local SEO, GBP optimization, citation building, and review management on autopilot.',
+      'Local search dominance through GBP optimization, citation management, and review strategy that builds trust and visibility.',
   },
   {
     icon: BarChart3,
     title: 'Revenue Analyst',
     description:
-      'Real-time market intelligence, competitor tracking, and pricing recommendations.',
+      'Competitive rate intelligence, dynamic pricing recommendations, and occupancy forecasting to maximize revenue per unit.',
   },
   {
     icon: Zap,
     title: 'Operations Manager',
     description:
-      'Automated task execution, performance reporting, and proactive alerts.',
+      'Proactive monitoring, performance reporting, and continuous optimization — your operations always running at peak.',
   },
 ]
 
@@ -52,11 +52,11 @@ export function TeamSection() {
             YOUR TEAM
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-[1.1]">
-            A full marketing team, powered by AI
+            Your dedicated revenue and marketing team
           </h2>
           <p className="text-[#94A3B8] text-lg">
-            Every role you need to dominate local search and fill your units
-            &mdash; without hiring a single person.
+            Specialist expertise across every discipline that drives storage
+            revenue &mdash; backed by proprietary intelligence technology.
           </p>
         </motion.div>
 

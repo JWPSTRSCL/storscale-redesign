@@ -3,9 +3,9 @@ import { motion } from 'framer-motion'
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const stats = [
-  { value: '42%', label: 'of storage facilities waste budget on ineffective marketing' },
-  { value: '$2,400', label: 'average monthly spend on agencies that don\'t understand storage' },
-  { value: '67%', label: 'of operators say marketing is their biggest operational headache' },
+  { value: '42%', label: 'of storage operators are underpricing their units based on competitive data' },
+  { value: '$2,400', label: 'average monthly revenue left on the table per facility through unoptimized listings and pricing' },
+  { value: '67%', label: 'of operators lack real-time competitive rate intelligence' },
 ]
 
 const containerVariants = {
@@ -45,7 +45,7 @@ export function ProblemSection() {
             Self-storage marketing is broken
           </h2>
           <p className="text-[#94A3B8] max-w-xl">
-            Operators are overspending on generic agencies, underperforming campaigns, and tools that weren't built for storage.
+            Operators are leaving revenue on the table through unoptimized pricing, poor listing visibility, and reactive marketing that can't keep pace with their market.
           </p>
         </motion.div>
 

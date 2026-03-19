@@ -8,37 +8,37 @@ const outcomes = [
     icon: TrendingUp,
     title: 'Revenue Growth',
     description:
-      'Average 32% increase in revenue within the first 90 days of optimization.',
+      'Dynamic pricing and SpareFoot listing optimization working in tandem to capture more revenue from every available unit.',
   },
   {
     icon: Users,
     title: 'Occupancy Boost',
     description:
-      'Fill vacant units faster with targeted local advertising and SEO.',
+      'Demand forecasting and targeted tenant acquisition fill units faster and reduce vacancy loss across your portfolio.',
   },
   {
     icon: Clock,
-    title: 'Time Saved',
+    title: 'Operational Efficiency',
     description:
-      'Eliminate 20+ hours per week of manual marketing tasks.',
+      'Free your team to focus on portfolio growth and acquisitions while always-on marketing and pricing run in the background.',
   },
   {
     icon: Shield,
-    title: 'Risk Reduction',
+    title: 'Data-Driven Decisions',
     description:
-      'Data-driven decisions replace guesswork. Every dollar tracked.',
+      'Every pricing and marketing decision backed by competitive rate intelligence — no more gut calls on street rates or ad spend.',
   },
   {
     icon: Globe,
-    title: 'Market Visibility',
+    title: 'Market Intelligence',
     description:
-      'Dominate local search results and outrank competitors.',
+      'Know your competitive position in real-time — rate changes, new supply, and demand shifts surfaced before they impact your revenue.',
   },
   {
     icon: Sparkles,
-    title: 'Smart Automation',
+    title: 'Continuous Optimization',
     description:
-      'AI agents that learn and improve continuously.',
+      'Always improving, always learning from market signals — your marketing and pricing sharpen with every data point.',
   },
 ]
 
@@ -54,14 +54,14 @@ export function OutcomesSection() {
           className="text-center"
         >
           <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-4">
-            OUTCOMES
+            IMPACT
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Results that speak for themselves
+            Measurable impact on your bottom line
           </h2>
           <p className="text-[#94A3B8] max-w-xl mx-auto">
-            StorScale delivers measurable outcomes across every metric that matters
-            to storage operators.
+            Revenue growth, NOI improvement, and operational leverage — the metrics
+            that drive portfolio value for storage operators.
           </p>
         </motion.div>
 

@@ -7,25 +7,25 @@ const steps = [
     day: 'Day 1',
     title: 'Onboarding & Audit',
     description:
-      'We connect your accounts, audit your current marketing, and build your customized strategy. You approve the plan.',
+      'We connect to your systems, analyze your market position, audit your current marketing performance, and build a data-driven strategy tailored to your facilities.',
   },
   {
     day: 'Day 7',
     title: 'Campaigns Go Live',
     description:
-      'Your Google Ads, local SEO updates, and GMB optimizations are active. Our AI begins tracking performance.',
+      'Your precision marketing campaigns, listing optimizations, and competitive monitoring activate. Real-time performance tracking begins from day one.',
   },
   {
     day: 'Day 30',
     title: 'First Results Review',
     description:
-      "Monthly clarity call with your specialist. Review wins, discuss insights, and approve next month's recommendations.",
+      'Your dedicated specialist walks through early wins, market insights, and strategic recommendations. You stay in control of every decision.',
   },
   {
     day: 'Day 100',
     title: 'Revenue Compounding',
     description:
-      'With three months of data, our AI predictions sharpen. Most facilities see 25\u201340% revenue growth by this milestone.',
+      'With three months of market data, your intelligence engine sharpens. Most facilities see 25\u201340% revenue growth as pricing, marketing, and operations compound.',
   },
 ]
 

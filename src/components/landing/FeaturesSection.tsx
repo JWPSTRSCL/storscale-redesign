@@ -156,30 +156,30 @@ function TaskListMockup() {
 const features = [
   {
     num: '01',
-    title: 'AI-Powered Google Ads',
+    title: 'Precision Paid Search',
     description:
-      'Our AI continuously optimizes your ad campaigns, adjusting bids, keywords, and targeting in real-time to maximize your ROI.',
+      'Every dollar of ad spend is optimized against real-time market data — competitive rates, seasonal demand patterns, and conversion signals specific to your market.',
     mockup: <AdCampaignMockup />,
   },
   {
     num: '02',
-    title: 'Local SEO Domination',
+    title: 'Local Market Dominance',
     description:
-      'Automated Google Business Profile optimization, review management, and local citation building across 50+ directories.',
+      'Market intelligence drives your local visibility — ensuring the right tenants find you at the right time through optimized listings, review strategy, and citation authority across 50+ directories.',
     mockup: <SearchResultsMockup />,
   },
   {
     num: '03',
     title: 'Revenue Intelligence',
     description:
-      'Real-time analytics dashboard tracking occupancy rates, revenue per unit, and competitive pricing across your market.',
+      'Dynamic pricing recommendations, competitive rate monitoring, and occupancy forecasting — the intelligence layer that turns market data into revenue decisions.',
     mockup: <RevenueMockup />,
   },
   {
     num: '04',
-    title: 'Automated Operations',
+    title: 'Always-On Operations',
     description:
-      'From review responses to competitor monitoring, our AI agents handle the tasks that consume your team\'s time.',
+      'Continuous monitoring, proactive responses, and performance reporting — your operations run at peak efficiency without adding headcount.',
     mockup: <TaskListMockup />,
   },
 ]
@@ -196,10 +196,10 @@ export function FeaturesSection() {
           className="mb-20"
         >
           <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-4">
-            FEATURES
+            CAPABILITIES
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white max-w-xl leading-[1.1]">
-            Everything you need to dominate your market
+            Revenue intelligence meets precision marketing
           </h2>
         </motion.div>
 

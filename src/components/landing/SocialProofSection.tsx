@@ -4,29 +4,29 @@ import { Star } from 'lucide-react'
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const bigStats = [
-  { value: '+32%', label: 'Average revenue increase' },
-  { value: '18%', label: 'Avg occupancy improvement' },
-  { value: '3\u00d7', label: 'Return on marketing spend' },
+  { value: '+32%', label: 'Average revenue increase per facility' },
+  { value: '18%', label: 'Average occupancy improvement' },
+  { value: '3\u00d7', label: 'Return on marketing investment' },
 ]
 
 const testimonials = [
   {
     quote:
-      'StorScale transformed our marketing. We went from 71% to 94% occupancy in 90 days.',
+      'StorScale\'s market intelligence transformed our revenue strategy. We went from 71% to 94% occupancy in 90 days \u2014 and our rate per unit increased 15%.',
     name: 'Mike D.',
     role: 'Owner, Ridgetop Storage \u2014 Phoenix, AZ',
     initials: 'MD',
   },
   {
     quote:
-      'I was skeptical at first but the results speak for themselves. $22k more per month with zero additional effort on my end.',
+      'The competitive pricing intelligence alone pays for itself. $22k more per month in revenue with better occupancy and higher rates.',
     name: 'Sarah K.',
     role: 'Operator, Coast Clear Storage \u2014 Tampa, FL',
     initials: 'SK',
   },
   {
     quote:
-      'The AI recommendations are incredibly accurate. Our Google rankings went from page 3 to #1 within six weeks.',
+      'Finally, marketing that connects directly to revenue. Our local search rankings went from page 3 to #1, and our cost per acquisition dropped 40%.',
     name: 'James T.',
     role: 'Owner, Blue Ridge Self Storage \u2014 Denver, CO',
     initials: 'JT',
@@ -45,7 +45,7 @@ export function SocialProofSection() {
           className="text-center mb-16"
         >
           <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-3">
-            RESULTS
+            PROVEN RESULTS
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white leading-[1.1]">
             Proven results across 180+ facilities
