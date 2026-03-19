@@ -2,11 +2,9 @@
 @import "tailwindcss";
 
 /* ─── Reset ─── */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* NOTE: Tailwind v4 includes its own preflight reset via @import "tailwindcss".
+   Do NOT add unlayered * { margin/padding: 0 } here — it overrides
+   all @layer utilities (py-32, p-8, mt-16, gap-6 etc.) due to cascade priority. */
 
 /* ─── Base ─── */
 html {
