@@ -13,7 +13,7 @@ import { Footer } from '@/components/landing/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#070B14]">
+    <div className="min-h-screen bg-[#070B14] overflow-x-hidden">
       <Navbar />
       <Hero />
       <ProblemSection />
