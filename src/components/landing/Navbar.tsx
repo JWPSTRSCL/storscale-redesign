@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MenuIcon, WarehouseIcon, XIcon } from 'lucide-react'
-import { Sheet, SheetContent, SheetFooter, SheetTrigger } from '@/components/ui/sheet'
-import { cn } from '@/lib/utils'
+import { Menu, X, Warehouse } from 'lucide-react'
 
 const links = [
   { label: 'How It Works', href: '#timeline' },
@@ -11,8 +9,8 @@ const links = [
 ]
 
 export function Navbar() {
-  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -22,90 +20,79 @@ export function Navbar() {
 
   return (
     <header
-      className={cn(
-        'fixed top-4 left-0 right-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-6xl rounded-xl transition-all duration-300',
+      className={`fixed top-4 left-4 right-4 z-50 mx-auto max-w-[1200px] rounded-xl transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0D1220]/90 backdrop-blur-xl border border-[#1E2A42]'
-          : 'bg-transparent border border-[#1E2A42]/50',
-      )}
+          ? 'bg-[#0D1220]/90 backdrop-blur-lg border border-[#1E2A42]'
+          : 'bg-transparent border border-transparent'
+      }`}
     >
-      <nav className="flex items-center justify-between px-4 py-3">
+      <nav className="flex items-center justify-between px-4 py-3 sm:px-6">
+        {/* Logo */}
         <a href="/" className="flex items-center gap-2 cursor-pointer select-none">
           <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#F97316]">
-            <WarehouseIcon className="size-4 text-white" />
+            <Warehouse className="size-4 text-white" />
           </div>
           <span className="text-lg font-bold text-[#F1F5F9]">StorScale</span>
         </a>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Desktop nav links */}
+        <div className="hidden lg:flex items-center gap-1">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="px-4 py-2 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42]/50 transition-colors duration-150"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#F1F5F9] transition-colors cursor-pointer"
             >
               {link.label}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        {/* Desktop CTA + Mobile hamburger */}
+        <div className="flex items-center gap-3">
           <a
             href="#demo"
-            className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA580C] transition-colors duration-150 cursor-pointer"
+            className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA6C0E] transition-colors cursor-pointer"
           >
             Book a Demo
           </a>
 
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <button
-                className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-colors cursor-pointer text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42]/50"
-                aria-label="Open menu"
-              >
-                <MenuIcon className="size-5" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="left" showClose={false} className="bg-[#0D1220] border-r border-[#1E2A42]">
-              <div className="flex items-center justify-between p-4 border-b border-[#1E2A42]">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#F97316]">
-                    <WarehouseIcon className="size-4 text-white" />
-                  </div>
-                  <span className="text-lg font-bold text-[#F1F5F9]">StorScale</span>
-                </div>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-[#1E2A42] transition-colors cursor-pointer text-[#94A3B8]"
-                >
-                  <XIcon className="size-4" />
-                </button>
-              </div>
-              <div className="flex flex-col gap-1 p-4">
-                {links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="px-4 py-3 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42] transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-              <SheetFooter>
-                <a
-                  href="#demo"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-center w-full px-5 py-3 rounded-lg text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA580C] transition-colors"
-                >
-                  Book a Free Demo
-                </a>
-              </SheetFooter>
-            </SheetContent>
-          </Sheet>
+          <button
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42]/50 transition-colors cursor-pointer"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          >
+            {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile slide-down panel */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="flex flex-col gap-1 px-4 pb-4 border-t border-[#1E2A42]">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 rounded-lg text-sm font-medium text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E2A42]/50 transition-colors cursor-pointer"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#demo"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center justify-center mt-2 px-5 py-3 rounded-lg text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA6C0E] transition-colors cursor-pointer"
+          >
+            Book a Demo
+          </a>
+        </div>
+      </div>
     </header>
   )
 }

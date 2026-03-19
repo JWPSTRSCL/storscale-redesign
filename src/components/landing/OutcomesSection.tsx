@@ -1,62 +1,88 @@
 import { motion } from 'framer-motion'
-import { TrendingUp, DollarSign, Users, Star } from 'lucide-react'
+import { TrendingUp, Users, Clock, Shield, Globe, Sparkles } from 'lucide-react'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const outcomes = [
-  { icon: TrendingUp, stat: '+32%', label: 'Average revenue increase in first 90 days' },
-  { icon: DollarSign, stat: '$14k', label: 'Average additional monthly revenue per facility' },
-  { icon: Users, stat: '180+', label: 'Active storage facilities trust StorScale' },
-  { icon: Star, stat: '4.9\u2605', label: 'Average customer satisfaction rating' },
+  {
+    icon: TrendingUp,
+    title: 'Revenue Growth',
+    description:
+      'Average 32% increase in revenue within the first 90 days of optimization.',
+  },
+  {
+    icon: Users,
+    title: 'Occupancy Boost',
+    description:
+      'Fill vacant units faster with targeted local advertising and SEO.',
+  },
+  {
+    icon: Clock,
+    title: 'Time Saved',
+    description:
+      'Eliminate 20+ hours per week of manual marketing tasks.',
+  },
+  {
+    icon: Shield,
+    title: 'Risk Reduction',
+    description:
+      'Data-driven decisions replace guesswork. Every dollar tracked.',
+  },
+  {
+    icon: Globe,
+    title: 'Market Visibility',
+    description:
+      'Dominate local search results and outrank competitors.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Smart Automation',
+    description:
+      'AI agents that learn and improve continuously.',
+  },
 ]
 
 export function OutcomesSection() {
   return (
-    <section className="relative z-10 py-24 px-4 bg-[#070B14] border-t border-[#1E2A42]">
-      <div className="max-w-6xl mx-auto">
+    <section id="outcomes" className="py-24">
+      <div className="container-max">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="text-center mb-14"
+          className="text-center"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">Outcomes</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
-            Real results for real operators
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
+            OUTCOMES
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9]">
+            Results that speak for themselves
           </h2>
+          <p className="text-[#94A3B8] mt-4 max-w-xl mx-auto">
+            StorScale delivers measurable outcomes across every metric that matters
+            to storage operators.
+          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {outcomes.map((item, i) => (
             <motion.div
-              key={item.stat}
+              key={item.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-6"
+              transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
+              className="bg-[#0D1220] border border-[#1E2A42] rounded-xl p-8 hover:border-[#F97316]/30 transition-all duration-300"
             >
-              <div className="w-10 h-10 bg-[#F97316]/10 rounded-lg flex items-center justify-center mb-4">
-                <item.icon className="w-5 h-5 text-[#F97316]" />
-              </div>
-              <p className="text-4xl font-bold text-[#F1F5F9] mb-2 leading-none">{item.stat}</p>
-              <p className="text-sm text-[#94A3B8] leading-relaxed">{item.label}</p>
+              <item.icon className="w-8 h-8 text-[#F97316]" />
+              <h3 className="text-lg font-bold text-[#F1F5F9] mt-4">
+                {item.title}
+              </h3>
+              <p className="text-sm text-[#94A3B8] mt-2">{item.description}</p>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
-          className="text-center mt-10"
-        >
-          <a href="#timeline" className="text-sm font-semibold text-[#F97316] hover:text-[#EA580C] transition-colors">
-            See how we achieve this →
-          </a>
-        </motion.div>
       </div>
     </section>
   )
