@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 const faqs = [
   {
@@ -48,10 +48,10 @@ export function FAQSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-3">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
             Questions & answers
           </h2>
         </motion.div>
@@ -64,16 +64,16 @@ export function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05, ease: EASE }}
-              className="border-b border-white/[0.06]"
+              className="border-b border-white/[0.04]"
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="flex justify-between items-center w-full text-left cursor-pointer py-5"
               >
-                <span className="text-[#F1F5F9] text-base font-medium pr-4">
+                <span className="text-white text-[1.0625rem] font-medium pr-4">
                   {faq.q}
                 </span>
-                <span className="shrink-0 text-[#F97316] transition-transform duration-300">
+                <span className="shrink-0 text-[#475569] transition-transform duration-300">
                   {open === i ? (
                     <Minus className="w-5 h-5" />
                   ) : (
@@ -90,7 +90,7 @@ export function FAQSection() {
                     transition={{ duration: 0.3, ease: EASE }}
                     style={{ overflow: 'hidden' }}
                   >
-                    <p className="text-[#94A3B8] text-sm leading-relaxed pb-5 mt-3">
+                    <p className="text-[#94A3B8] text-[0.9375rem] leading-relaxed pb-5 mt-3">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -107,12 +107,12 @@ export function FAQSection() {
           transition={{ duration: 0.4, delay: 0.3, ease: EASE }}
           className="text-center mt-20"
         >
-          <p className="text-lg font-semibold text-[#F1F5F9] mb-4">
+          <p className="text-lg font-semibold text-white mb-4">
             Still have questions?
           </p>
           <a
             href="#demo"
-            className="inline-flex items-center px-6 py-3 rounded-lg text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA6C0E] transition-colors duration-200 cursor-pointer"
+            className="inline-flex items-center px-7 py-3.5 rounded-xl text-sm font-semibold bg-[#F97316] text-white hover:bg-[#EA6C0E] transition-colors duration-200 cursor-pointer"
           >
             Talk to our team
           </a>

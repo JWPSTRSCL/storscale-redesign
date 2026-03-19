@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { TrendingUp, Users, Clock, Shield, Globe, Sparkles } from 'lucide-react'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 const outcomes = [
   {
@@ -53,10 +53,10 @@ export function OutcomesSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-4">
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-4">
             OUTCOMES
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Results that speak for themselves
           </h2>
           <p className="text-[#94A3B8] max-w-xl mx-auto">
@@ -73,12 +73,13 @@ export function OutcomesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
-              className="bg-[#0D1220]/60 rounded-xl p-8 shadow-lg shadow-black/10 hover:bg-[#141A2E] transition-all duration-300"
+              className="bg-white/[0.03] rounded-2xl p-8 hover:bg-white/[0.05] transition-all duration-300"
+              style={{ boxShadow: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)' }}
             >
               <div className="w-12 h-12 rounded-xl bg-[#F97316]/10 flex items-center justify-center">
                 <item.icon className="w-6 h-6 text-[#F97316]" />
               </div>
-              <h3 className="text-lg font-bold text-[#F1F5F9] mt-4">
+              <h3 className="text-lg font-bold text-white mt-4">
                 {item.title}
               </h3>
               <p className="text-sm text-[#94A3B8] mt-2">{item.description}</p>

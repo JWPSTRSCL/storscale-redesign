@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, TrendingUp, Star, Warehouse } from 'lucide-react'
+import { ArrowRight, TrendingUp, Star } from 'lucide-react'
+import { Logo } from './Logo'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 const transition = { duration: 0.7, ease: EASE }
@@ -30,8 +31,8 @@ export function Hero() {
           <div className="max-w-xl">
             {/* Badge */}
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={stagger(0)}>
-              <span className="inline-flex items-center gap-2 bg-[#F97316]/[0.08] text-[#F97316] rounded-full px-4 py-2 text-[0.8125rem] font-medium tracking-wide">
-                <Warehouse className="size-3.5" />
+              <span className="inline-flex items-center gap-2.5 bg-[#F97316]/[0.08] text-[#F97316] rounded-full px-4 py-2 text-[0.8125rem] font-medium tracking-wide">
+                <Logo size={18} />
                 AI-Powered Self-Storage Marketing
               </span>
             </motion.div>

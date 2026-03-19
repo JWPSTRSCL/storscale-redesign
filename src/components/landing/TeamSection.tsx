@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Target, Search, BarChart3, Zap } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 interface ServiceCard {
   icon: LucideIcon
@@ -48,10 +48,10 @@ export function TeamSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-4">
-            04 — YOUR TEAM
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-4">
+            YOUR TEAM
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] mb-4 leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-[1.1]">
             A full marketing team, powered by AI
           </h2>
           <p className="text-[#94A3B8] text-lg">
@@ -68,12 +68,13 @@ export function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className="bg-[#0D1220] border border-white/[0.06] rounded-xl p-8 shadow-lg shadow-black/20 hover:bg-[#141A2E] transition-all duration-300"
+              className="bg-[#0C1019] rounded-2xl p-8 hover:bg-[#0E1320] transition-all duration-300"
+              style={{ boxShadow: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)' }}
             >
               <div className="w-12 h-12 rounded-xl bg-[#F97316]/10 flex items-center justify-center">
                 <card.icon className="w-6 h-6 text-[#F97316]" />
               </div>
-              <h3 className="text-xl font-bold text-[#F1F5F9] mt-4">
+              <h3 className="text-xl font-bold text-white mt-4">
                 {card.title}
               </h3>
               <p className="text-[#94A3B8] mt-2 text-sm leading-relaxed">

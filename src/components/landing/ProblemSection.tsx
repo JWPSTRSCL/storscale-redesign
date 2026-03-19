@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 const stats = [
   { value: '42%', label: 'of storage facilities waste budget on ineffective marketing' },
@@ -26,6 +26,8 @@ const cardVariants = {
   },
 }
 
+const insetShadow = '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)'
+
 export function ProblemSection() {
   return (
     <section id="problem" className="py-32 md:py-40">
@@ -35,10 +37,11 @@ export function ProblemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="mb-14"
         >
-          <p className="section-label mb-4">01 — The Problem</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] max-w-2xl leading-[1.1] mb-4">
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-4">
+            THE PROBLEM
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white max-w-2xl leading-[1.1] mb-4">
             Self-storage marketing is broken
           </h2>
           <p className="text-[#94A3B8] max-w-xl">
@@ -57,14 +60,20 @@ export function ProblemSection() {
             <motion.div
               key={stat.value}
               variants={cardVariants}
-              className="bg-gradient-to-r from-[#0D1220] to-[#0D1220]/60 border-l-4 border-l-[#F97316] rounded-xl p-8 shadow-lg shadow-black/20"
+              className="bg-white/[0.03] rounded-2xl p-8"
+              style={{ boxShadow: insetShadow }}
             >
-              <p className="text-5xl font-bold text-[#F1F5F9] mb-3 leading-none">
-                {stat.value}
-              </p>
-              <p className="text-sm text-[#94A3B8] leading-relaxed">
-                {stat.label}
-              </p>
+              <div className="flex gap-5">
+                <div className="w-1 rounded-full bg-[#F97316] shrink-0" />
+                <div>
+                  <p className="text-5xl font-extrabold text-white tracking-tight mb-3 leading-none">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-[#94A3B8] leading-relaxed">
+                    {stat.label}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 const tiers = [
   {
@@ -81,20 +81,20 @@ export function PricingSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-3">
             PRICING
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
             Simple, transparent pricing
           </h2>
 
           {/* Billing toggle */}
           <div className="mt-8 flex justify-center">
-            <div className="inline-flex items-center bg-[#0D1220]/60 border border-white/[0.06] rounded-full p-1">
+            <div className="inline-flex items-center bg-white/[0.04] rounded-full p-1">
               <button
                 onClick={() => setAnnual(false)}
                 className={`relative px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors duration-200 ${
-                  !annual ? 'text-white' : 'text-[#94A3B8] hover:text-[#F1F5F9]'
+                  !annual ? 'text-white' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
                 {!annual && (
@@ -109,7 +109,7 @@ export function PricingSection() {
               <button
                 onClick={() => setAnnual(true)}
                 className={`relative px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-colors duration-200 ${
-                  annual ? 'text-white' : 'text-[#94A3B8] hover:text-[#F1F5F9]'
+                  annual ? 'text-white' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
                 {annual && (
@@ -138,27 +138,33 @@ export function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: EASE }}
-              className={`relative rounded-xl p-8 flex flex-col ${
+              className={`relative rounded-2xl p-8 flex flex-col ${
                 tier.popular
-                  ? 'bg-[#0D1220] border-2 border-[#F97316]'
-                  : 'bg-[#0D1220]/80 shadow-lg shadow-black/20'
+                  ? 'bg-[#0C1019] ring-1 ring-[#F97316]/50'
+                  : 'bg-[#0C1019]'
               }`}
               style={
                 tier.popular
-                  ? { boxShadow: '0 0 30px rgba(249,115,22,0.15)' }
-                  : {}
+                  ? {
+                      boxShadow:
+                        '0 0 40px rgba(249,115,22,0.1), 0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)',
+                    }
+                  : {
+                      boxShadow:
+                        '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)',
+                    }
               }
             >
               {tier.popular && (
                 <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-0">
-                  <span className="bg-[#F97316] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="bg-[#F97316] text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
                     Most Popular
                   </span>
                 </div>
               )}
 
               <div className="mb-6">
-                <h3 className="text-lg font-bold text-[#F1F5F9]">{tier.name}</h3>
+                <h3 className="text-lg font-bold text-white">{tier.name}</h3>
                 <p className="text-sm text-[#94A3B8] mt-1">{tier.subtitle}</p>
               </div>
 
@@ -171,7 +177,7 @@ export function PricingSection() {
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="text-4xl font-bold text-[#F1F5F9]">
+                    <span className="text-4xl font-extrabold text-white">
                       {tier.monthlyPrice === 0
                         ? 'Free'
                         : `$${annual ? tier.annualPrice : tier.monthlyPrice}`}
@@ -187,10 +193,10 @@ export function PricingSection() {
 
               <a
                 href="#demo"
-                className={`flex items-center justify-center w-full rounded-lg py-3 text-sm font-semibold cursor-pointer transition-colors duration-200 mb-8 ${
+                className={`flex items-center justify-center w-full rounded-xl py-3.5 text-sm font-semibold cursor-pointer transition-colors duration-200 mb-8 ${
                   tier.popular
                     ? 'bg-[#F97316] text-white hover:bg-[#EA6C0E]'
-                    : 'bg-white/[0.06] text-[#F1F5F9] hover:bg-white/[0.1]'
+                    : 'bg-white/[0.06] text-white hover:bg-white/[0.1]'
                 }`}
               >
                 {tier.cta}

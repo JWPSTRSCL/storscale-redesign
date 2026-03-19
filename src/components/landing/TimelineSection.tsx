@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 const steps = [
   {
@@ -40,19 +40,17 @@ export function TimelineSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center mb-20"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
-            03 — HOW IT WORKS
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-3">
+            HOW IT WORKS
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white leading-[1.1]">
             From onboarding to results in 100 days
           </h2>
         </motion.div>
 
-        {/* Desktop: alternating layout with centered line */}
-        {/* Mobile: stacked with line on the left */}
         <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-[#F97316]/20 via-[#1E2A42] to-[#1E2A42]/20" />
+          {/* Vertical line — gradient from orange to transparent */}
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-[#F97316] via-[#F97316]/30 to-transparent" />
 
           <div className="flex flex-col gap-16">
             {steps.map((step, i) => {
@@ -68,9 +66,9 @@ export function TimelineSection() {
                     isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  {/* Node dot — positioned on mobile left line, desktop center */}
+                  {/* Timeline node */}
                   <div
-                    className="absolute left-4 md:left-1/2 top-6 md:top-1/2 w-4 h-4 rounded-full bg-[#F97316] z-10 -translate-x-1/2 md:-translate-y-1/2"
+                    className="absolute left-4 md:left-1/2 top-6 md:top-1/2 w-3 h-3 rounded-full bg-[#F97316] z-10 -translate-x-1/2 md:-translate-y-1/2"
                     style={{ boxShadow: '0 0 12px rgba(249,115,22,0.4)' }}
                   />
 
@@ -83,11 +81,14 @@ export function TimelineSection() {
                       isLeft ? 'md:pr-12' : 'md:pl-12'
                     }`}
                   >
-                    <p className="text-2xl font-bold text-[#F97316] mb-2">
+                    <p className="text-[#F97316] text-lg font-bold mb-2">
                       {step.day}
                     </p>
-                    <div className="bg-[#0D1220]/80 shadow-lg shadow-black/20 rounded-xl p-6 max-w-sm">
-                      <h3 className="font-bold text-[#F1F5F9] text-lg mb-2">
+                    <div
+                      className="bg-[#0C1019] rounded-2xl p-6 max-w-sm"
+                      style={{ boxShadow: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)' }}
+                    >
+                      <h3 className="font-bold text-white text-lg mb-2">
                         {step.title}
                       </h3>
                       <p className="text-sm text-[#94A3B8] leading-relaxed">

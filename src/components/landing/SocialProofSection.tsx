@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
 
 const bigStats = [
   { value: '+32%', label: 'Average revenue increase' },
@@ -44,10 +44,10 @@ export function SocialProofSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#F97316] mb-3">
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-3">
             RESULTS
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F1F5F9] leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white leading-[1.1]">
             Proven results across 180+ facilities
           </h2>
         </motion.div>
@@ -62,7 +62,7 @@ export function SocialProofSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
             >
-              <p className="text-6xl md:text-7xl font-bold text-[#F1F5F9] leading-none">
+              <p className="text-6xl md:text-7xl font-extrabold text-white tracking-tighter leading-none">
                 {stat.value}
               </p>
               <p className="text-sm text-[#94A3B8] mt-2">{stat.label}</p>
@@ -79,16 +79,15 @@ export function SocialProofSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className="bg-[#0D1220]/60 shadow-lg shadow-black/10 rounded-xl p-6"
+              className="bg-[#0C1019] rounded-2xl p-6"
+              style={{ boxShadow: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)' }}
             >
               {/* Stars */}
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star
                     key={j}
-                    className="w-4 h-4"
-                    fill="#F97316"
-                    stroke="#F97316"
+                    className="w-4 h-4 text-[#F97316] fill-[#F97316]"
                   />
                 ))}
               </div>
@@ -106,7 +105,7 @@ export function SocialProofSection() {
                   </span>
                 </div>
                 <div>
-                  <p className="text-[#F1F5F9] text-sm font-medium">
+                  <p className="text-white text-sm font-medium">
                     {t.name}
                   </p>
                   <p className="text-[#475569] text-xs">{t.role}</p>

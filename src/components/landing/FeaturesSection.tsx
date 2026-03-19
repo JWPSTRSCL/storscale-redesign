@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 
-const EASE = [0.16, 1, 0.3, 1] as const
+const EASE = [0.22, 1, 0.36, 1] as const
+
+const insetShadow = '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 16px 48px -8px rgba(0,0,0,0.4)'
 
 function AdCampaignMockup() {
   const campaigns = [
@@ -18,7 +20,7 @@ function AdCampaignMockup() {
             <p className="text-xs text-[#94A3B8]">{c.name}</p>
             <span className="text-xs font-semibold text-[#F97316]">{c.roas} ROAS</span>
           </div>
-          <div className="w-full h-2 bg-[#141A2E] rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-white/[0.04] rounded-full overflow-hidden">
             <div
               className="h-full bg-[#F97316] rounded-full"
               style={{ width: `${c.progress}%` }}
@@ -41,20 +43,20 @@ function SearchResultsMockup() {
   return (
     <div className="p-5 space-y-3">
       <p className="text-xs text-[#475569] uppercase tracking-widest">Local Search Results</p>
-      <div className="bg-[#141A2E] rounded-lg p-3">
+      <div className="bg-white/[0.03] rounded-lg p-3">
         <p className="text-[10px] text-[#475569] mb-2">storage units near me</p>
         {results.map((r) => (
           <div
             key={r.badge}
             className={`flex items-center justify-between py-2 px-3 rounded-md mb-1 last:mb-0 ${
-              r.highlight ? 'bg-[#F97316]/10 border border-[#F97316]/30' : ''
+              r.highlight ? 'bg-[#F97316]/10' : ''
             }`}
           >
             <div className="flex items-center gap-2">
               <span className={`text-xs font-bold ${r.highlight ? 'text-[#F97316]' : 'text-[#475569]'}`}>
                 {r.position}
               </span>
-              <span className={`text-xs ${r.highlight ? 'text-[#F1F5F9] font-medium' : 'text-[#94A3B8]'}`}>
+              <span className={`text-xs ${r.highlight ? 'text-white font-medium' : 'text-[#94A3B8]'}`}>
                 {r.badge}
               </span>
             </div>
@@ -104,7 +106,7 @@ function RevenueMockup() {
           { label: 'Avg Rate', value: '$128' },
         ].map((m) => (
           <div key={m.label} className="text-center">
-            <p className="text-sm font-bold text-[#F1F5F9]">{m.value}</p>
+            <p className="text-sm font-bold text-white">{m.value}</p>
             <p className="text-[10px] text-[#475569]">{m.label}</p>
           </div>
         ))}
@@ -127,13 +129,13 @@ function TaskListMockup() {
       {tasks.map((t) => (
         <div
           key={t.task}
-          className="flex items-center gap-3 py-2 border-b border-[#1E2A42] last:border-0"
+          className="flex items-center gap-3 py-2 border-b border-white/[0.03] last:border-0"
         >
           <div
             className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 ${
               t.done
-                ? 'bg-[#F97316]/10 border border-[#F97316]/30'
-                : 'bg-[#141A2E] border border-[#1E2A42]'
+                ? 'bg-[#F97316]/10'
+                : 'bg-white/[0.03]'
             }`}
           >
             {t.done && (
@@ -142,7 +144,7 @@ function TaskListMockup() {
               </svg>
             )}
           </div>
-          <p className={`text-xs ${t.done ? 'text-[#94A3B8]' : 'text-[#F1F5F9]'}`}>
+          <p className={`text-xs ${t.done ? 'text-[#94A3B8]' : 'text-white'}`}>
             {t.task}
           </p>
         </div>
@@ -193,8 +195,10 @@ export function FeaturesSection() {
           transition={{ duration: 0.5, ease: EASE }}
           className="mb-20"
         >
-          <p className="section-label mb-4">02 — Features</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F1F5F9] max-w-xl leading-[1.1]">
+          <p className="text-[0.8125rem] font-medium tracking-[0.15em] uppercase text-[#F97316] mb-4">
+            FEATURES
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white max-w-xl leading-[1.1]">
             Everything you need to dominate your market
           </h2>
         </motion.div>
@@ -209,14 +213,14 @@ export function FeaturesSection() {
               transition={{ duration: 0.6, ease: EASE }}
               className={`flex flex-col lg:flex-row items-center gap-12 py-20 ${
                 i % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              } ${i < features.length - 1 ? 'border-b border-white/[0.04]' : ''}`}
+              } ${i < features.length - 1 ? 'border-b border-white/[0.03]' : ''}`}
             >
               {/* Text side */}
               <div className="flex-1">
-                <div className="w-10 h-10 rounded-full bg-[#F97316]/10 border border-[#F97316]/30 text-[#F97316] font-bold text-sm flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#F97316]/10 text-[#F97316] font-bold text-sm flex items-center justify-center">
                   {feature.num}
                 </div>
-                <h3 className="text-2xl font-bold text-[#F1F5F9] mt-4">
+                <h3 className="text-2xl font-bold text-white mt-4">
                   {feature.title}
                 </h3>
                 <p className="text-[#94A3B8] mt-3 max-w-md leading-relaxed">
@@ -226,7 +230,10 @@ export function FeaturesSection() {
 
               {/* Visual side */}
               <div className="flex-1 w-full">
-                <div className="relative bg-[#0D1220]/80 border border-white/[0.06] rounded-xl p-6 w-full max-w-md mx-auto lg:mx-0 shadow-xl shadow-black/30 overflow-hidden">
+                <div
+                  className="relative bg-[#0C1019] rounded-2xl p-6 w-full max-w-md mx-auto lg:mx-0 overflow-hidden"
+                  style={{ boxShadow: insetShadow }}
+                >
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/20 to-transparent" />
                   {feature.mockup}
                 </div>
